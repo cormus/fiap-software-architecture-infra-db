@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   terraform:
-    uses: ./.github/workflows/terraform.yml
+    uses: ./.github/workflows/terraform.yaml
     with:
       environment: database
       aws-assume-role-arn: "arn:aws:iam::881307377501:role/github-actions-fiap-pipelike"
