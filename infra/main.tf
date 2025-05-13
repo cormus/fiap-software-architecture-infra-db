@@ -73,7 +73,7 @@ resource "aws_security_group" "mysql_sg" {
 
 resource "aws_db_instance" "mysql_db" {
   identifier         = "my-mysql-db"
-  db_name            = var.bucket_name
+  db_name            = var.database_name
   engine             = "mysql"
   engine_version     = "8.0"
   instance_class     = "db.t3.micro"
