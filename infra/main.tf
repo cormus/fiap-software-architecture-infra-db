@@ -60,7 +60,7 @@ resource "aws_security_group" "mysql_sg" {
     from_port   = 3306
     to_port     = 3306
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # Permite acesso de qualquer IP (use com cuidado)
+    cidr_blocks = ["0.0.0.0/0"] # Permite acesso de qualquer IP
   }
 
   egress {
