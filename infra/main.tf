@@ -86,3 +86,19 @@ resource "aws_db_instance" "mysql_db" {
   vpc_security_group_ids = [aws_security_group.mysql_sg.id]
   db_subnet_group_name = aws_db_subnet_group.my_db_subnet_group.name
 }
+
+resource "aws_dynamodb_table" "nosql_table" {
+  name           = "lanchonete-categorias"
+  billing_mode   = "PAY_PER_REQUEST" # Modo de pagamento sob demanda
+  hash_key       = "id"
+
+  attribute {
+    name = "id"
+    type = "S" # Tipo de dado: String
+  }
+
+  tags = {
+    Environment = "Production"
+    Name        = "MyNoSQLTable"
+  }
+}
