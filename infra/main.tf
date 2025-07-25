@@ -71,7 +71,7 @@ resource "aws_security_group" "mysql_sg" {
   }
 }
 
-resource "aws_db_instance" "mysql_db" {
+resource "aws_db_instance" "mysql_db_pedido" {
   identifier         = "my-mysql-db"
   db_name            = var.database_name
   engine             = "mysql"
@@ -87,7 +87,7 @@ resource "aws_db_instance" "mysql_db" {
   db_subnet_group_name = aws_db_subnet_group.my_db_subnet_group.name
 }
 
-resource "aws_db_instance" "mysql_db" {
+resource "aws_db_instance" "mysql_db_pagamento" {
   identifier         = "my-mysql-pagamento-db"
   db_name            = var.database_pagamento_name
   engine             = "mysql"
