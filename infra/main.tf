@@ -87,6 +87,22 @@ resource "aws_db_instance" "mysql_db" {
   db_subnet_group_name = aws_db_subnet_group.my_db_subnet_group.name
 }
 
+resource "aws_db_instance" "mysql_db" {
+  identifier         = "my-mysql-pagamento-db"
+  db_name            = var.database_pagamento_name
+  engine             = "mysql"
+  engine_version     = "8.0"
+  instance_class     = "db.t3.micro"
+  username           = "admin"
+  password           = "582adfEt"
+  storage_type       = "gp2"
+  allocated_storage  = 20
+  skip_final_snapshot = true
+  publicly_accessible = true
+  vpc_security_group_ids = [aws_security_group.mysql_sg.id]
+  db_subnet_group_name = aws_db_subnet_group.my_db_subnet_group.name
+}
+
 resource "aws_dynamodb_table" "nosql_table" {
   name           = "lanchonete-categorias"
   billing_mode   = "PAY_PER_REQUEST" # Modo de pagamento sob demanda
